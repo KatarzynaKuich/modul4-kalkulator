@@ -1,4 +1,6 @@
 import sys
+import logging
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
 
 #>> Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: 1
 #Podaj składnik 1. 2.3
@@ -39,11 +41,12 @@ liczby={
 
 print("\nPodaj działanie, posługując się odpowiednią liczbą:","\n",operacje_nazwy,"\n oraz minimum 2 liczby : (oddzielajac spacjami)")
 # taking multiple inputs at a time separated by space
-
 o,a,b,*args=[(x) for x in input().split()]
 
-print("*args:",*args)
+logging.debug(operacje_nazwy[o],a,b)
 
+
+#int(sys.argv[1]) 
 result =operacje[int(o)](float(a),float(b),*args)
 
 print("Wykonane działanie to",operacje_nazwy[o],"liczb:",a,b,*args,"\nWynik:",result)
