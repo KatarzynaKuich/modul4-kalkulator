@@ -33,6 +33,8 @@ operacje_nazwy ={
     "4":"Dzielenie"
 }
 
+
+
 print("\nPodaj działanie, posługując się odpowiednią liczbą:","\n",operacje_nazwy,"\n oraz minimum 2 liczby : (oddzielajac spacjami)")
 #sprawdz czy sa przynajmniej 3 liczby jak nie ma to wyjdz
 count=0
@@ -53,7 +55,3 @@ logging.debug("operacje")
 result =float(operacje[int(o)](float(a),float(b),*args))
 
 print("Wykonane działanie to",operacje_nazwy[o],"liczb:",a,b,*args,"\nWynik:",result)
-
-
-1
-
