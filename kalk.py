@@ -8,14 +8,19 @@ logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
 #Dodaję 2.30 i 5.40
 #Wynik to 7.70
 
+def isnumeric(x):
+    # zwraca True jesli jest numeric
+    return all(i in "0123456789.+-" for i in x) and any(i in "0123456789" for i in x)
+
 def Dodawanie (a,b,*args):
-    return a + b + sum(int(i) for i in args)
+    return a + b + sum(float(i) for i in args)
 def Odejmowanie(a,b,*args):
-    return a - b -sum(int(i) for i in args)
+    return a - b -sum(float(i) for i in args)
 def Mnozenie(a,b,*args):
-   return a*b* sum(int(i) for i in args)
+   return a*b* sum(float(i) for i in args)
 def Dzielenie(a,b,*args):
-    if b==0 or sum(int(i) for i in args)==0 :
+    if b==0 or sum(float(i) for i in args)==0 :
+        #dzielenie przez 0 niedozwolone wyjdz
         print("WARNING: dzielenie przez zero nie jest dozwolone")
         exit(1)
     else:
@@ -42,15 +47,20 @@ print("\nPodaj działanie, posługując się odpowiednią liczbą:","\n",operacj
 count=0
 tekst = input().split()
 for x in tekst:
-    if x.isnumeric() :
+    if isnumeric(x):
         count=count+1
+        
 
 if count <3 :
    print("za malo podales wartosci liczbowych")
    exit(1)
 else:
     # taking multiple inputs at a time separated by space
-    o,a,b,*args=[x for x in tekst if x.isnumeric()]
+    o,a,b,*args=[x for x in tekst if isnumeric(x)]
+    #sprawdz czy 1 argument jest liczba calkowita z listy 1 do 4
+    if not int(o) in [1,2,3,4]:
+        print("Nie wybrales działania z zakresu 1 -4")
+        exit(1)
 
 logging.debug("operacje")
 
