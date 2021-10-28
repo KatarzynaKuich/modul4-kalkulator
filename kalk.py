@@ -1,5 +1,6 @@
-import sys
 import logging
+
+
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
 
 #>> Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: 1
@@ -40,14 +41,23 @@ liczby={
 
 
 print("\nPodaj działanie, posługując się odpowiednią liczbą:","\n",operacje_nazwy,"\n oraz minimum 2 liczby : (oddzielajac spacjami)")
-# taking multiple inputs at a time separated by space
-o,a,b,*args=[(x) for x in input().split()]
+#sprawdz czy sa przynajmniej 3 liczby jak nie ma to wyjdz
+count=0
+tekst = input().split()
+for x in tekst:
+    if x.isnumeric() :
+        count=count+1
 
-logging.debug(operacje_nazwy[o],a,b)
+if count <3 :
+   print("za malo podales wartosci liczbowych")
+   exit(1)
+else:
+    # taking multiple inputs at a time separated by space
+    o,a,b,*args=[x for x in tekst if x.isnumeric()]
 
+logging.debug("operacje")
 
-#int(sys.argv[1]) 
-result =operacje[int(o)](float(a),float(b),*args)
+result =float(operacje[int(o)](float(a),float(b),*args))
 
 print("Wykonane działanie to",operacje_nazwy[o],"liczb:",a,b,*args,"\nWynik:",result)
 
