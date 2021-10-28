@@ -15,8 +15,9 @@ def Odejmowanie(a,b,*args):
 def Mnozenie(a,b,*args):
    return a*b* sum(int(i) for i in args)
 def Dzielenie(a,b,*args):
-    if b=0 and sum(*args)=0 :
+    if b==0 or sum(int(i) for i in args)==0 :
         print("WARNING: dzielenie przez zero nie jest dozwolone")
+        exit(1)
     else:
         return  a/b/sum(int(i) for i in args)
  
