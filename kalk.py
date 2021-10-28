@@ -33,13 +33,6 @@ operacje_nazwy ={
     "4":"Dzielenie"
 }
 
-
-liczby={
-    "a":"liczba a",
-    "b":"liczba b"
-}
-
-
 print("\nPodaj działanie, posługując się odpowiednią liczbą:","\n",operacje_nazwy,"\n oraz minimum 2 liczby : (oddzielajac spacjami)")
 #sprawdz czy sa przynajmniej 3 liczby jak nie ma to wyjdz
 count=0
