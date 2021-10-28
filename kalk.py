@@ -1,6 +1,6 @@
 import logging
 
-logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
+logging.basicConfig(level=logging.DEBUG)
 
 #>> Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: 1
 #Podaj składnik 1. 2.3
@@ -63,8 +63,8 @@ else:
         print("Nie wybrales działania z zakresu 1 -4")
         exit(1)
 
-logging.debug("operacje")
+logging.debug(f"\nWykonane dzialanie to {operacje_nazwy[o]} liczb {a} , {b},{args}")
 
 result =float(operacje[int(o)](float(a),float(b),*args))
 
-print("Wykonane działanie to",operacje_nazwy[o],"liczb:",a,b,*args,"\nWynik:",result)
+print("\nWynik:",result)
