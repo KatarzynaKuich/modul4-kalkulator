@@ -1,6 +1,5 @@
 import logging
 
-
 logging.basicConfig(level=logging.DEBUG,format='%(asctime)s %(message)s')
 
 #>> Podaj działanie, posługując się odpowiednią liczbą: 1 Dodawanie, 2 Odejmowanie, 3 Mnożenie, 4 Dzielenie: 1
@@ -16,9 +15,11 @@ def Odejmowanie(a,b,*args):
 def Mnozenie(a,b,*args):
    return a*b* sum(int(i) for i in args)
 def Dzielenie(a,b,*args):
-   return a/b/sum(int(i) for i in args)
-
-
+    if b=0 and sum(*args)=0 :
+        print("WARNING: dzielenie przez zero nie jest dozwolone")
+    else:
+        return  a/b/sum(int(i) for i in args)
+ 
 operacje ={
     1:Dodawanie,
     2:Odejmowanie,
