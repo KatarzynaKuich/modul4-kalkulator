@@ -19,12 +19,13 @@ def Odejmowanie(a,b,*args):
 def Mnozenie(a,b,*args):
    return a*b* sum(float(i) for i in args)
 def Dzielenie(a,b,*args):
-    if b==0 or sum(float(i) for i in args)==0 :
-        #dzielenie przez 0 niedozwolone wyjdz
-        print("WARNING: dzielenie przez zero nie jest dozwolone")
-        exit(1)
-    else:
-        return  a/b/sum(int(i) for i in args)
+       #dzielenie przez 0 niedozwolone wyjdz
+        try:
+         return a/b/sum(int(i) for i in args)
+        except ZeroDivisionError as err:
+         print('Dzielenie przez 0 niedozwolone:', err)
+         exit(1)
+  
  
 operacje ={
     1:Dodawanie,
